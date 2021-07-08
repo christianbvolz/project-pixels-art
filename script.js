@@ -29,3 +29,14 @@ function selectColor() {
 }
 
 window.onload = selectColor();
+
+document.querySelectorAll('.color').forEach((item) => {
+  const selectedColor = item;
+  selectedColor.addEventListener('click', () => {
+    const allColors = document.querySelectorAll('.color');
+    allColors.forEach((unselected) => {
+      unselected.className = 'color';
+    });
+    item.className = 'color selected';
+  });
+});
