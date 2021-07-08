@@ -47,3 +47,10 @@ document.querySelectorAll('.pixel').forEach((pixel) => {
     selectedPixel.style.backgroundColor = selectedColor;
   });
 });
+
+document.getElementById('clear-board').addEventListener('click', () => {
+  document.querySelectorAll('.pixel').forEach((pixel) => {
+    const clearPixel = pixel;
+    clearPixel.style.backgroundColor = 'rgb(255, 255, 255)';
+  });
+});
