@@ -4,3 +4,12 @@
   display: inline-block;
 }
 
+.pixel {
+  border: black solid 1px;
+  padding: 50px;
+  background-color: rgb(255, 255, 255);
+}
+
+.coluna {
+  display: inline-block;
+}

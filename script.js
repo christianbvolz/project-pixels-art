@@ -7,3 +7,18 @@ function colorPalette() {
 }
 
 colorPalette();
+
+function tamanhoQuadro(largura, altura) {
+  const quadro = document.getElementById('pixel-board');
+  for (let i = 0; i < largura; i += 1) {
+    const coluna = document.createElement('div');
+    coluna.className = 'coluna';
+    quadro.appendChild(coluna);
+    for (let x = 0; x < altura; x += 1) {
+      const pixel = document.createElement('div');
+      pixel.className = 'pixel';
+      coluna.appendChild(pixel);
+    }
+  }
+}
+tamanhoQuadro(5, 5);
