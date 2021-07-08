@@ -22,3 +22,10 @@ function tamanhoQuadro(largura, altura) {
   }
 }
 tamanhoQuadro(5, 5);
+
+function selectColor() {
+  const color = document.querySelector('.color');
+  color.className = 'color selected';
+}
+
+window.onload = selectColor();
