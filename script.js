@@ -23,20 +23,27 @@ function tamanhoQuadro(largura, altura) {
 }
 tamanhoQuadro(5, 5);
 
-function selectColor() {
+window.onload = function selectColor() {
   const color = document.querySelector('.color');
   color.className = 'color selected';
-}
+};
 
-window.onload = selectColor();
-
-document.querySelectorAll('.color').forEach((item) => {
-  const selectedColor = item;
+document.querySelectorAll('.color').forEach((color) => {
+  const selectedColor = color;
   selectedColor.addEventListener('click', () => {
     const allColors = document.querySelectorAll('.color');
-    allColors.forEach((unselected) => {
-      unselected.className = 'color';
+    allColors.forEach((colors) => {
+      const unselectedColor = colors;
+      unselectedColor.className = 'color';
     });
-    item.className = 'color selected';
+    selectedColor.className = 'color selected';
+  });
+});
+
+document.querySelectorAll('.pixel').forEach((pixel) => {
+  const selectedPixel = pixel;
+  selectedPixel.addEventListener('click', () => {
+    const selectedColor = document.querySelector('.selected').style.backgroundColor;
+    selectedPixel.style.backgroundColor = selectedColor;
   });
 });
