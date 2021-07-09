@@ -55,17 +55,27 @@ document.getElementById('clear-board').addEventListener('click', () => {
   });
 });
 
+function removeBoard() {
+  const quadro = document.getElementById('pixel-board');
+  const colunas = quadro.children.length;
+  for (let index = 0; index < colunas; index += 1) {
+    quadro.removeChild(quadro.children[0]);
+  }
+}
+
 document.getElementById('generate-board').addEventListener('click', () => {
   let input = document.getElementById('board-size').value;
   const inputValue = parseInt(input, 10);
   if (input.length === 0) {
     alert('Board inválido!');
+  } else if (inputValue < 5) {
+    removeBoard();
+    boardSize(5, 5);
+  } else if (inputValue > 50) {
+    removeBoard();
+    boardSize(50, 50);
   } else {
-    const quadro = document.getElementById('pixel-board');
-    const colunas = quadro.children.length;
-    for (let index = 0; index < colunas; index += 1) {
-      quadro.removeChild(quadro.children[0]);
-    }
+    removeBoard();
     boardSize(inputValue, inputValue);
   }
   // input = '';
