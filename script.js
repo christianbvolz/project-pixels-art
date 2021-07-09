@@ -1,9 +1,12 @@
 function colorPalette() {
   const palette = document.querySelectorAll('.color');
   palette[0].style.backgroundColor = 'black';
-  palette[1].style.backgroundColor = 'red';
-  palette[2].style.backgroundColor = 'blue';
-  palette[3].style.backgroundColor = 'green';
+  for (let i = 1; i < 4; i += 1) {
+    const red = Math.ceil(Math.random() * 255);
+    const green = Math.ceil(Math.random() * 255);
+    const blue = Math.ceil(Math.random() * 255);
+    palette[i].style.backgroundColor = `rgb(${red}, ${green},${blue})`;
+  }
 }
 
 colorPalette();
@@ -64,7 +67,7 @@ function removeBoard() {
 }
 
 document.getElementById('generate-board').addEventListener('click', () => {
-  let input = document.getElementById('board-size').value;
+  const input = document.getElementById('board-size').value;
   const inputValue = parseInt(input, 10);
   if (input.length === 0) {
     alert('Board inválido!');
@@ -78,5 +81,4 @@ document.getElementById('generate-board').addEventListener('click', () => {
     removeBoard();
     boardSize(inputValue, inputValue);
   }
-  // input = '';
 });
