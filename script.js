@@ -8,7 +8,7 @@ function colorPalette() {
 
 colorPalette();
 
-function tamanhoQuadro(largura, altura) {
+function boardSize(largura, altura) {
   const quadro = document.getElementById('pixel-board');
   for (let i = 0; i < largura; i += 1) {
     const coluna = document.createElement('div');
@@ -21,7 +21,7 @@ function tamanhoQuadro(largura, altura) {
     }
   }
 }
-tamanhoQuadro(5, 5);
+boardSize(5, 5);
 
 window.onload = function selectColor() {
   const color = document.querySelector('.color');
@@ -53,4 +53,20 @@ document.getElementById('clear-board').addEventListener('click', () => {
     const clearPixel = pixel;
     clearPixel.style.backgroundColor = 'rgb(255, 255, 255)';
   });
+});
+
+document.getElementById('generate-board').addEventListener('click', () => {
+  let input = document.getElementById('board-size').value;
+  const inputValue = parseInt(input, 10);
+  if (input.length === 0) {
+    alert('Board inválido!');
+  } else {
+    const quadro = document.getElementById('pixel-board');
+    const colunas = quadro.children.length;
+    for (let index = 0; index < colunas; index += 1) {
+      quadro.removeChild(quadro.children[0]);
+    }
+    boardSize(inputValue, inputValue);
+  }
+  // input = '';
 });

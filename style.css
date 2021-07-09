@@ -10,11 +10,14 @@
   height: 40px;
   background-color: rgb(255, 255, 255);
   display: inline-block;
+
   /* tirar display quando for botar no github pages */
 }
 
 .coluna {
   height: 42px;
+  
   /* display: inline-block; */
+
   /* botar display quando for botar no github pages */
 }
