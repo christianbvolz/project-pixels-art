@@ -43,13 +43,16 @@ document.querySelectorAll('.color').forEach((color) => {
   });
 });
 
-document.querySelectorAll('.pixel').forEach((pixel) => {
-  const selectedPixel = pixel;
-  selectedPixel.addEventListener('click', () => {
-    const selectedColor = document.querySelector('.selected').style.backgroundColor;
-    selectedPixel.style.backgroundColor = selectedColor;
+function colorPixel () {
+  document.querySelectorAll('.pixel').forEach((pixel) => {
+    const selectedPixel = pixel;
+    selectedPixel.addEventListener('click', () => {
+      const selectedColor = document.querySelector('.selected').style.backgroundColor;
+      selectedPixel.style.backgroundColor = selectedColor;
+    });
   });
-});
+}
+colorPixel();
 
 document.getElementById('clear-board').addEventListener('click', () => {
   document.querySelectorAll('.pixel').forEach((pixel) => {
@@ -80,5 +83,6 @@ document.getElementById('generate-board').addEventListener('click', () => {
   } else {
     removeBoard();
     boardSize(inputValue, inputValue);
+    colorPixel();
   }
 });
